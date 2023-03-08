@@ -5,7 +5,7 @@ $fullNames = $phoneNumber = $email = $pizzaName = $ingredients = '';
 //--------------------------FORM VALIDATION-------------------
 if(isset($_POST['submit'])){
          //Test Cross site scripting (XSS) using JSCode '<script>window.location = "https://www.jw.org"</script>' 
-    
+        echo $_POST['fullNames'];
 
         //check names
         $fullNames = $_POST['fullNames'];
@@ -82,7 +82,7 @@ if(isset($_POST['submit'])){
         if(mysqli_query($conn, $sqlquery)){
             //success - data inserted into db
             echo '<script>alert("Your pizza order is received")</script>';
-            header('location: index.php');
+            header('location: pizzas.php');
         }else{
             echo 'SQL query error: ' .mysqli_error($conn);
         }
